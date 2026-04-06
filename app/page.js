@@ -1,65 +1,140 @@
+import React from "react";
+import HeroCarousel from "../components/HeroCarousel";
+import CheapProductCard from "../components/CheapProductCard";
+import DealsSlider from "../components/DealsSlider";
+import CategoriesRow from "../components/CategoriesRow";
+import HeadphoneFeature from "../components/HeadphoneFeature";
+import { FaEgg, FaGift } from "react-icons/fa";
+import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
 
-export default function Home() {
+const Home = () => {
+  const horizontalProducts = Array(12)
+    .fill(null)
+    .map((_, i) => ({
+      id: `hp-${i}`,
+      title: "MATIHO One-piece...",
+      oldPrice: "10,000",
+      newPrice: "3,000",
+    }));
+
+  const cheapProducts = Array(6)
+    .fill(null)
+    .map((_, i) => ({
+      id: `cp-${i}`,
+      title: "Professional Hair Clippers Wireless Hair Trimmer H...",
+      oldPrice: "10,000",
+      newPrice: "3,000",
+    }));
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="bg-very-dark-olive min-h-screen text-white font-lato pb-margin">
+      {/* Top Banner */}
+      <div className="bg-dark-olive text-center py-intra text-[0.85rem] font-bold">
+        Order with call: 0808 352 4016
+      </div>
+
+      <div className="w-full max-w-[1200px] mx-auto px-pad max-md:px-normal">
+        {/* Hero Section Carousel */}
+        <HeroCarousel />
+
+        {/* Categories Section */}
+        <CategoriesRow />
+
+        {/* Easter Deals Slider */}
+        <DealsSlider
+          title="Easter Deals"
+          subtitle="00h : 20m : 32s"
+          icon={<FaEgg className="text-white" size={24} />}
+          topBarClass="bg-dark-olive text-white"
+          titleClass="text-white"
+          subtitleClass="text-primary"
+          rightAction="See more"
+        >
+          {horizontalProducts.map((horizontalProduct, index) => (
+            <div
+              key={index}
+              className="min-w-[150px] flex flex-col cursor-pointer group"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <ProductCard
+                id={horizontalProduct.id}
+                title={horizontalProduct.title}
+                price={horizontalProduct.newPrice}
+                description={horizontalProduct.title}
+              />
+            </div>
+          ))}
+        </DealsSlider>
+
+        {/* CHEAP !! Section */}
+        <section className="mb-margin" data-aos="fade-up">
+          <div className="flex items-center gap-normal mb-pad">
+            <FaGift className="text-white" size={30} />
+            <div>
+              <h3 className="font-catamaran text-xl font-bold leading-none text-white">
+                CHEAP !!
+              </h3>
+              <span className="text-[0.8rem] text-primary">
+                Less than &#8358;50,000
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-normal">
+            {cheapProducts.map((p, i) => (
+              <CheapProductCard
+                key={i}
+                id={p.id}
+                title={p.title}
+                oldPrice={p.oldPrice}
+                newPrice={p.newPrice}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Trending Slider */}
+        <DealsSlider
+          title="Trending"
+          subtitle="Lot of people love this"
+          icon={<FaGift className="text-dark-olive" size={24} />}
+          topBarClass="bg-white text-very-dark-olive"
+          titleClass="text-dark-olive"
+          subtitleClass="text-custom-gray"
+          rightAction="See more"
+        >
+          {horizontalProducts.map((p, i) => (
+            <div
+              key={i}
+              className="min-w-[150px] flex flex-col cursor-pointer group"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <ProductCard
+                id={p.id}
+                title={p.title}
+                price={p.newPrice}
+                description={p.title}
+              />
+            </div>
+          ))}
+        </DealsSlider>
+
+        <div
+          className="relative w-full h-[100px] lg:h-[230px] my-margin"
+          data-aos="zoom-in"
+        >
+          <Image
+            src="/announcement.png"
+            alt="announcement"
+            fill
+            className="w-full h-auto"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+
+        {/* Feature Section */}
+        <HeadphoneFeature />
+      </div>
     </div>
   );
-}
+};
+
+export default Home;
