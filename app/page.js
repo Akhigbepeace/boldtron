@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import HeroCarousel from "../components/HeroCarousel";
 import CheapProductCard from "../components/CheapProductCard";
 import DealsSlider from "../components/DealsSlider";
@@ -9,23 +10,34 @@ import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
 
 const Home = () => {
-  const horizontalProducts = Array(12)
-    .fill(null)
-    .map((_, i) => ({
-      id: `hp-${i}`,
-      title: "MATIHO One-piece...",
-      oldPrice: "10,000",
-      newPrice: "3,000",
-    }));
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const cheapProducts = Array(6)
-    .fill(null)
-    .map((_, i) => ({
-      id: `cp-${i}`,
-      title: "Professional Hair Clippers Wireless Hair Trimmer H...",
-      oldPrice: "10,000",
-      newPrice: "3,000",
-    }));
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch("http://localhost:3001/products");
+        const data = await res.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  const horizontalProducts = products.slice(0, 12);
+  const cheapProducts = products.filter(p => parseInt(p.newPrice) < 50000).slice(0, 6);
+
+  if (loading) {
+    return (
+      <div className="bg-very-dark-olive min-h-screen text-white flex items-center justify-center font-lato text-2xl">
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <div className="bg-very-dark-olive min-h-screen text-white font-lato pb-margin">
@@ -61,6 +73,7 @@ const Home = () => {
                 title={horizontalProduct.title}
                 price={horizontalProduct.newPrice}
                 description={horizontalProduct.title}
+                image={horizontalProduct.image}
               />
             </div>
           ))}
@@ -113,6 +126,7 @@ const Home = () => {
                 title={p.title}
                 price={p.newPrice}
                 description={p.title}
+                image={p.image}
               />
             </div>
           ))}
@@ -126,6 +140,7 @@ const Home = () => {
             src="/announcement.png"
             alt="announcement"
             fill
+            sizes="100vw"
             className="w-full h-auto"
           />
         </div>

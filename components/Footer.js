@@ -97,6 +97,7 @@ export default function Footer() {
             alt="payment"
             width={210}
             height={100}
+            style={{ width: "auto", height: "auto" }}
           />
 
           <div>&copy; 2026. Boldtron Technologies Limited</div>

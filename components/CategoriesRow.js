@@ -62,10 +62,10 @@ export default function CategoriesRow() {
       className="mb-margin flex items-stretch overflow-x-auto p-pad gap-normal hide-scrollbar"
       style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
     >
-      <div className="flex justify-center gap-pad">
+      <div className="flex justify-center w-full gap-pad">
         {categories.map((cat, i) => (
           <Link
-            href={`/category/${cat.name.toLowerCase()}`}
+            href={`/category/${encodeURIComponent(cat.name.toLowerCase())}`}
             key={i}
             className="flex flex-col items-center gap-intra cursor-pointer group w-[80px]"
           >

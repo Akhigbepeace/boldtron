@@ -5,69 +5,27 @@ import Link from "next/link";
 import CartItem from "@/components/CartItem";
 import DealsSlider from "@/components/DealsSlider";
 import ProductCard from "@/components/ProductCard";
-
-const defaultItems = [
-  {
-    id: "cp-1",
-    title: "Professional Hair Clippers Wireless Hair Trimmer High-end battery",
-    oldPrice: "10,000",
-    newPrice: "12,333", // Modified price to match subtotal logic
-    color: "Black",
-    quantity: 1,
-  },
-  {
-    id: "cp-2",
-    title: "Professional Hair Clippers Wireless Hair Trimmer High-end battery",
-    oldPrice: "10,000",
-    newPrice: "12,333",
-    color: "Black",
-    quantity: 1,
-  },
-  {
-    id: "cp-3",
-    title: "Professional Hair Clippers Wireless Hair Trimmer High-end battery",
-    oldPrice: "10,000",
-    newPrice: "12,333",
-    color: "Black",
-    quantity: 1,
-  },
-];
+import { useCart } from "@/components/CartProvider";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState(defaultItems);
+  const {
+    cartItems,
+    updateQuantity,
+    removeFromCart,
+    getCartTotal,
+    getCartCount,
+    isLoaded,
+  } = useCart();
 
-  // Handle quantity updates
-  const updateQuantity = (id, newQuantity) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: newQuantity } : item,
-      ),
-    );
-  };
-
-  // Handle item removal
-  const removeItem = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  // Calculate subtotal
-  const subtotal = useMemo(() => {
-    return cartItems.reduce((acc, item) => {
-      const price = parseFloat(item.newPrice.replace(/,/g, ""));
-      return acc + price * item.quantity;
-    }, 0);
-  }, [cartItems]);
-
-  const totalItems = useMemo(() => {
-    return cartItems.reduce((acc, item) => acc + item.quantity, 0);
-  }, [cartItems]);
+  const subtotal = getCartTotal();
+  const totalItems = getCartCount();
 
   const mockRelatedProducts = Array(8)
     .fill(null)
     .map((_, i) => ({
-      id: `rp-${i}`,
+      id: `p${i + 1}`,
       title: "MATIHO One-piece...",
-      price: "₦ 3,000",
+      price: "3,000",
     }));
 
   return (
@@ -80,13 +38,13 @@ const Cart = () => {
         <div className="flex flex-col lg:flex-row gap-margin items-start">
           {/* Cart Items List */}
           <div className="flex-1 w-full">
-            {cartItems.length > 0 ? (
+            {isLoaded && cartItems.length > 0 ? (
               cartItems.map((item) => (
                 <CartItem
-                  key={item.id}
+                  key={`${item.id}-${item.color}`}
                   item={item}
                   onUpdateQuantity={updateQuantity}
-                  onRemove={removeItem}
+                  onRemove={removeFromCart}
                 />
               ))
             ) : (

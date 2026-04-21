@@ -2,6 +2,7 @@ import { Catamaran, Nova_Round, Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { CartProvider } from "../components/CartProvider";
 
 import AosInit from "../components/AosInit";
 
@@ -32,10 +33,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${catamaran.variable} ${novaRound.variable} ${lato.variable}`}>
       <body className="flex flex-col min-h-screen">
-        <AosInit />
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CartProvider>
+          <AosInit />
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

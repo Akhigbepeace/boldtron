@@ -11,7 +11,12 @@ export default function ProductCard(props) {
         href={`/product/${id || "1"}`}
         className="cursor-pointer flex flex-col flex-1"
       >
-        <Image src="/clipper.png" alt={title} width={150} height={150} />
+        <Image
+          src="/clipper.png"
+          alt={title || "product"}
+          width={150}
+          height={150}
+        />
 
         <h3 className="text-very-dark-olive text-base font-light">{title}</h3>
       </Link>

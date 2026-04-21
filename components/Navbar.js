@@ -5,10 +5,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaTag, FaSearch, FaShoppingCart, FaUserCircle } from "react-icons/fa";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { useCart } from "./CartProvider";
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
+  const { getCartCount, isLoaded } = useCart();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -74,9 +76,14 @@ export default function Navbar() {
           </Link>
           <Link
             href="/cart"
-            className="pl-normal cursor-pointer text-dark-olive hover:text-very-dark-olive transition-colors"
+            className="pl-normal cursor-pointer text-dark-olive hover:text-very-dark-olive transition-colors relative"
           >
             <FaShoppingCart size={24} />
+            {isLoaded && getCartCount() > 0 && (
+              <span className="absolute -top-2 -right-2 bg-primary text-very-dark-olive text-[0.7rem] font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                {getCartCount()}
+              </span>
+            )}
           </Link>
         </div>
       </div>
@@ -84,7 +91,7 @@ export default function Navbar() {
       {/* Search Bar */}
       <form
         onSubmit={handleSearch}
-        className="flex md:hidden items-center w-full max-w-full md:max-w-[400px] my-normal md:my-0 flex-1 flex w-full bg-bg-input rounded-none overflow-hidden"
+        className="flex md:hidden items-center w-full max-w-full md:max-w-[400px] my-normal md:my-0 flex-1 bg-input rounded-none overflow-hidden"
       >
         <input
           type="text"

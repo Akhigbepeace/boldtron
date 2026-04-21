@@ -8,7 +8,7 @@ export default function HeadphoneFeature() {
       data-aos="fade-up"
     >
       <div className="relative w-full h-full">
-        <Image src="/headset.png" alt="headset" fill />
+        <Image src="/headset.png" alt="headset" fill sizes="(max-width: 768px) 100vw, 50vw" />
       </div>
 
       <div className="p-pad flex flex-col justify-center text-custom-gray text-base">

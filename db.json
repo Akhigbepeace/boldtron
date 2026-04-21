@@ -1,0 +1,176 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Electronics",
+      "slug": "electronics",
+      "image": "/categories/electronics.png"
+    },
+    {
+      "id": "2",
+      "name": "Phones",
+      "slug": "phones",
+      "image": "/categories/phones.png"
+    },
+    {
+      "id": "3",
+      "name": "Computers",
+      "slug": "computer.png",
+      "image": "/categories/computer.png"
+    },
+    {
+      "id": "4",
+      "name": "Cooking Appliances",
+      "slug": "cooking-appliances",
+      "image": "/categories/cooking-appliance.png"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "categoryId": "1",
+      "title": "Titanium Pro Wireless Hair Clippers",
+      "oldPrice": "10000",
+      "newPrice": "3000",
+      "rating": 4.5,
+      "image": "/products/clippers.png",
+      "images": ["/products/clippers.png", "/products/clippers.png", "/products/clippers.png", "/products/clippers.png"],
+      "colors": ["Black", "Silver", "Gold"],
+      "boughtCount": 125,
+      "stock": 45,
+      "description": "Elevate your grooming standards with our Professional Wireless Hair Clipper. Designed for elite performance, it features a high-end lithium-ion battery delivering an industry-leading 300 minutes of cordless runtime. The high-torque, whisper-quiet motor effortlessly powers through all hair types, while the self-sharpening titanium blades ensure a snag-free, skin-close finish every time.\n\nThe sleek, ergonomic metal housing provides a premium feel and maximum durability for heavy daily use. Stay informed with the integrated smart LED display, tracking battery life and maintenance alerts in real-time. Whether you are crafting a seamless fade or a crisp lineup, this trimmer offers the ultimate fusion of cordless freedom and professional-grade power.",
+      "dateAdded": "2024-03-10",
+      "reviews": [
+        { "name": "Tiamiyu Muiz", "rating": 5, "status": "Works perfectly", "text": "I use it to shave everything on my body so far. I love what am seeing. It works perfectly", "date": "March 10, 2025" },
+        { "name": "John Doe", "rating": 4, "status": "Great battery", "text": "Battery lasts forever. Good build quality.", "date": "February 15, 2025" },
+        { "name": "Jane Smith", "rating": 5, "status": "Professional feel", "text": "Feels like a professional tool. Very heavy and sturdy.", "date": "January 20, 2025" }
+      ]
+    },
+    {
+      "id": "p2",
+      "categoryId": "1",
+      "title": "AcousticWave Bluetooth Soundbar 5.1",
+      "oldPrice": "25000",
+      "newPrice": "18000",
+      "rating": 4.2,
+      "image": "/products/soundbar.png",
+      "images": ["/products/soundbar.png", "/products/soundbar.png", "/products/soundbar.png"],
+      "colors": ["Black", "Grey"],
+      "boughtCount": 89,
+      "stock": 12,
+      "description": "Experience cinematic audio in your living room with the AcousticWave Bluetooth Soundbar. Featuring 5.1 channel surround sound and a powerful wireless subwoofer, it delivers deep bass and crystal-clear dialogue. Connect effortlessly via Bluetooth 5.0, HDMI ARC, or optical input. Perfect for movie nights, gaming, and parties.",
+      "dateAdded": "2024-03-05",
+      "reviews": [
+        { "name": "Samuel L.", "rating": 4, "status": "Good sound", "text": "Very loud and clear. Subwoofer is decent.", "date": "March 01, 2025" }
+      ]
+    },
+    {
+      "id": "p3",
+      "categoryId": "1",
+      "title": "VisionPro 43-inch Smart LED TV",
+      "oldPrice": "150000",
+      "newPrice": "120000",
+      "rating": 4.8,
+      "image": "/products/tv.png",
+      "images": ["/products/tv.png", "/products/tv.png"],
+      "colors": ["Black"],
+      "boughtCount": 42,
+      "stock": 5,
+      "description": "Upgrade your entertainment with the VisionPro 43-inch Smart LED TV. Boasting stunning 4K Ultra HD resolution and HDR10 support, every scene comes to life with vibrant colors and sharp details. Built-in smart features give you instant access to Netflix, YouTube, and Prime Video. Multiple HDMI ports ensure all your consoles and devices stay connected.",
+      "dateAdded": "2024-03-12",
+      "reviews": [
+        { "name": "Mary A.", "rating": 5, "status": "Beautiful picture", "text": "The 4K quality is amazing for this price.", "date": "April 05, 2025" }
+      ]
+    },
+    {
+      "id": "p4",
+      "categoryId": "2",
+      "title": "Apple iPhone 15 Pro Max 256GB",
+      "oldPrice": "1200000",
+      "newPrice": "1150000",
+      "rating": 4.9,
+      "image": "/products/iphone15.png",
+      "images": ["/products/iphone15.png", "/products/iphone15.png", "/products/iphone15.png"],
+      "colors": ["Natural Titanium", "Blue Titanium", "Black Titanium"],
+      "boughtCount": 310,
+      "stock": 15,
+      "description": "Forged in titanium, the iPhone 15 Pro Max is the ultimate smartphone. Powered by the A17 Pro chip, it handles console-level gaming and heavy multitasking with ease. The groundbreaking camera system features a 5x optical zoom lens, allowing you to capture stunning photos from a distance. With an all-day battery life and an Action button, it's designed for professionals.",
+      "dateAdded": "2024-03-13",
+      "reviews": [
+        { "name": "David W.", "rating": 5, "status": "Incredible camera", "text": "The 5x zoom is a game changer for concerts.", "date": "March 22, 2025" }
+      ]
+    },
+    {
+      "id": "p5",
+      "categoryId": "2",
+      "title": "Samsung Galaxy S24 Ultra 512GB",
+      "oldPrice": "1100000",
+      "newPrice": "1050000",
+      "rating": 4.7,
+      "image": "/products/s24.png",
+      "images": ["/products/s24.png", "/products/s24.png"],
+      "colors": ["Titanium Gray", "Titanium Black", "Titanium Violet"],
+      "boughtCount": 215,
+      "stock": 20,
+      "description": "Unleash the power of AI with the Galaxy S24 Ultra. Its flat, 6.8-inch Dynamic AMOLED 2X display is perfect for the included S Pen. Powered by the Snapdragon 8 Gen 3 for Galaxy, it's incredibly fast. The 200MP main camera captures unbelievable detail, and Galaxy AI features like Live Translate and Circle to Search make everyday tasks effortless.",
+      "dateAdded": "2024-03-11",
+      "reviews": [
+        { "name": "Sarah K.", "rating": 5, "status": "Best Android", "text": "The flat screen is so much better than curved. AI features are neat.", "date": "April 10, 2025" }
+      ]
+    },
+    {
+      "id": "p6",
+      "categoryId": "3",
+      "title": "Apple MacBook Air M2 13-inch",
+      "oldPrice": "850000",
+      "newPrice": "800000",
+      "rating": 4.8,
+      "image": "/products/macbook.png",
+      "images": ["/products/macbook.png", "/products/macbook.png"],
+      "colors": ["Midnight", "Starlight", "Space Gray", "Silver"],
+      "boughtCount": 150,
+      "stock": 8,
+      "description": "Supercharged by M2, the MacBook Air is strikingly thin and brings exceptional speed and power efficiency. With up to 18 hours of battery life, you can work, play, and create anywhere. The 13.6-inch Liquid Retina display is the biggest and brightest ever on a MacBook Air. Features a 1080p FaceTime HD camera, four-speaker sound system, and MagSafe charging.",
+      "dateAdded": "2024-03-09",
+      "reviews": [
+        { "name": "Chris B.", "rating": 5, "status": "Light and fast", "text": "Perfect for college. Battery lasts me two days.", "date": "March 28, 2025" }
+      ]
+    },
+    {
+      "id": "p7",
+      "categoryId": "4",
+      "title": "RapidBoil 1.7L Electric Kettle",
+      "oldPrice": "15000",
+      "newPrice": "9500",
+      "rating": 4.3,
+      "image": "/products/kettle.png",
+      "images": ["/products/kettle.png"],
+      "colors": ["Silver", "Black"],
+      "boughtCount": 420,
+      "stock": 100,
+      "description": "Boil water in minutes with the RapidBoil Electric Kettle. Made from high-quality stainless steel, it features a 1.7L capacity, perfect for families. The auto shut-off and boil-dry protection ensure safety. Its 360-degree swivel base and cordless design make pouring easy. A clear water gauge lets you know exactly how much water is inside.",
+      "dateAdded": "2024-03-01",
+      "reviews": [
+        { "name": "Anita M.", "rating": 4, "status": "Does the job", "text": "Heats water quickly. A bit noisy but good for the price.", "date": "February 10, 2025" }
+      ]
+    },
+    {
+      "id": "p8",
+      "categoryId": "4",
+      "title": "CrispMax 5.5L Digital Air Fryer",
+      "oldPrice": "65000",
+      "newPrice": "55000",
+      "rating": 4.6,
+      "image": "/products/airfryer.png",
+      "images": ["/products/airfryer.png", "/products/airfryer.png"],
+      "colors": ["Black"],
+      "boughtCount": 180,
+      "stock": 25,
+      "description": "Enjoy your favorite fried foods with up to 85% less fat using the CrispMax Digital Air Fryer. Its 5.5L large capacity basket can fit a whole chicken. The digital touchscreen offers 8 preset cooking programs for fries, steak, chicken, and more. Features an easy-to-clean non-stick basket and a shake reminder for perfectly even cooking.",
+      "dateAdded": "2024-03-14",
+      "reviews": [
+        { "name": "Peter D.", "rating": 5, "status": "Game changer", "text": "I use it every day. Chicken wings come out perfect.", "date": "April 02, 2025" }
+      ]
+    }
+  ]
+}
